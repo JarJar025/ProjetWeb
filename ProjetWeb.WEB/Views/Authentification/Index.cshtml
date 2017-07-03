@@ -9,13 +9,14 @@
     <meta name="viewport" content="width=device-width" />
     <title>Authentification</title>
     <link rel="stylesheet" type="text/css" href="../../Content/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../Content/css.css" media="screen" />
 </head>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <body style="background-color:grey">
+    <body>
         <div class="container-fluid">
-            <div class="row">
+            <div>
                 <div class="col-sm-3 col-md-3" style="margin-top:20%;">
                 </div>
                 <div class="col-sm-6 col-md-6" style="margin-top:20%;">
@@ -24,7 +25,7 @@
                 <div class="col-sm-3 col-md-3" style="margin-top:20%;">
                 </div>
             </div>
-            <div class="row">
+            <div>
                 <div class="col-sm-4 col-md-4" style="margin-top:20%;">
                 </div>
                 <div class="col-sm-4 col-md-4">
