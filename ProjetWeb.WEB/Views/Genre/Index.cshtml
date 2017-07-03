@@ -1,0 +1,66 @@
+﻿@model List<ProjetWeb.MODEL.GenreModel>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" id="dt-table">
+    <thead>
+        <tr>
+            <th>
+                <h4>ID Genre</h4>
+            </th>
+            <th>
+                <h4>Nom Genre</h4>
+            </th>
+            <th>
+                <h4>Description</h4>
+            </th>
+            <th>
+                <h4>Purge</h4>
+            </th>
+            <th></th>
+        </tr>
+
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nom_genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.purge)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id_genre }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id_genre }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id_genre })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dt-table').DataTable();
+        });
+    </script>
+}

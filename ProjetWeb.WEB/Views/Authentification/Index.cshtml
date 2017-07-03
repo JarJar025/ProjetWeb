@@ -1,0 +1,67 @@
+﻿@model  ProjetWeb.MODEL.UtilisateurModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Authentification</title>
+    <link rel="stylesheet" type="text/css" href="../../Content/bootstrap.css" media="screen" />
+</head>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <body style="background-color:grey">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-3" style="margin-top:20%;">
+                </div>
+                <div class="col-sm-6 col-md-6" style="margin-top:20%;">
+                    <h2 class="text-center">Authentification</h2>
+                </div>
+                <div class="col-sm-3 col-md-3" style="margin-top:20%;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-md-4" style="margin-top:20%;">
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            @*<label for="inputEmail3" class=" col-sm-2 col-md-2 control-label">Email</label>*@
+                            @Html.LabelFor(model => model.Mail, htmlAttributes: new { @class = "control-label col-sm-2 col-md-2" })
+                            <div class="col-sm-8 col-md-8">
+                                @* <input type="email" class="form-control" id="inputEmail3" placeholder="Email" />*@
+                                @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+                            </div>
+                        </div><br />
+                        <div class="form-group">
+                            @*<label for="inputPassword3" class="col-sm-2 col-md-2 control-label">Password</label>*@
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-sm-2 col-md-2" })
+                            <div class="col-sm-8 col-md-8">
+                                @*<input type="password" class="form-control" id="inputPassword3" placeholder="Password"/>*@
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div><br />
+                        <div class="form-group">
+                            <div class="col-sm-2 col-md-2"></div>
+                            <div class="col-sm-8 col-md-8">
+                                <button type="submit" class="form-control btn-default">Connexion</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-4 col-md-4" style="margin-top:20%;">
+                </div>
+            </div>
+        </div>
+    </body>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+</html>

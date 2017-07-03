@@ -42,7 +42,12 @@
   <ItemGroup>
     <Compile Include="FonctionnaliteModel.cs" />
     <Compile Include="GenreModel.cs" />
+    <Compile Include="LigneResaModel.cs" />
+    <Compile Include="ProfilModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservationModel.cs" />
+    <Compile Include="RessourceModel.cs" />
+    <Compile Include="UtilisateurModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

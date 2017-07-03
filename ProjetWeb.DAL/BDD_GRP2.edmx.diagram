@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="BDD_GRP2Model.Profil" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDD_GRP2Model.Reservation" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BDD_GRP2Model.Ressource" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDD_GRP2Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BDD_GRP2Model.Utilisateur" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="BDD_GRP2Model.FK__RESSOURCE__ID_Ge__2D27B809" ManuallyRouted="false" />
         <AssociationConnector Association="BDD_GRP2Model.FK__LIGNE_RES__ID_Re__35BCFE0A" ManuallyRouted="false" />

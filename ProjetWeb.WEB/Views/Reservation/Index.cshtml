@@ -1,0 +1,69 @@
+﻿@model List<ProjetWeb.MODEL.ReservationModel>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" id="dt-table">
+    <thead>
+        <tr>
+            <th>
+                <h4>ID Reservation</h4>
+            </th>
+            <th>
+                <h4>Date de début</h4>
+            </th>
+            <th>
+                <h4>Date de fin</h4>
+            </th>
+            <th>
+                <h4>Date de réservation</h4>
+            </th>
+            <th>
+                <h4>Nom du l'utilsateur</h4>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_Reservation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_Debut_Resa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_Fin_Resa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_Resa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_User)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id_Reservation }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id_Reservation }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id_Reservation })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dt-table').DataTable();
+        });
+    </script>
+}

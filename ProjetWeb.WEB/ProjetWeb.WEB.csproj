@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -141,7 +147,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthentificationController.cs" />
+    <Compile Include="Controllers\FonctionnaliteController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LigneResaController.cs" />
+    <Compile Include="Controllers\ProfilController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Controllers\RessourceController.cs" />
+    <Compile Include="Controllers\UtilisateurController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,6 +198,36 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Authentification\Index.cshtml" />
+    <Content Include="Views\Fonctionnalite\Details.cshtml" />
+    <Content Include="Views\Fonctionnalite\Index.cshtml" />
+    <Content Include="Views\Genre\Index.cshtml" />
+    <Content Include="Views\Genre\Edit.cshtml" />
+    <Content Include="Views\Genre\Details.cshtml" />
+    <Content Include="Views\Genre\Delete.cshtml" />
+    <Content Include="Views\Genre\Create.cshtml" />
+    <Content Include="Views\LigneResa\Create.cshtml" />
+    <Content Include="Views\LigneResa\Delete.cshtml" />
+    <Content Include="Views\LigneResa\Details.cshtml" />
+    <Content Include="Views\LigneResa\Edit.cshtml" />
+    <Content Include="Views\LigneResa\Index.cshtml" />
+    <Content Include="Views\Profil\Details.cshtml" />
+    <Content Include="Views\Profil\Index.cshtml" />
+    <Content Include="Views\Reservation\Index.cshtml" />
+    <Content Include="Views\Reservation\Edit.cshtml" />
+    <Content Include="Views\Reservation\Details.cshtml" />
+    <Content Include="Views\Reservation\Delete.cshtml" />
+    <Content Include="Views\Reservation\Create.cshtml" />
+    <Content Include="Views\Ressource\Index.cshtml" />
+    <Content Include="Views\Ressource\Edit.cshtml" />
+    <Content Include="Views\Ressource\Details.cshtml" />
+    <Content Include="Views\Ressource\Delete.cshtml" />
+    <Content Include="Views\Ressource\Create.cshtml" />
+    <Content Include="Views\Utilisateur\Index.cshtml" />
+    <Content Include="Views\Utilisateur\Edit.cshtml" />
+    <Content Include="Views\Utilisateur\Details.cshtml" />
+    <Content Include="Views\Utilisateur\Delete.cshtml" />
+    <Content Include="Views\Utilisateur\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -203,6 +247,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetWeb.BL\ProjetWeb.BL.csproj">
+      <Project>{4d9bdda1-6709-4456-be3a-417cbb862cb5}</Project>
+      <Name>ProjetWeb.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetWeb.MODEL\ProjetWeb.MODEL.csproj">
+      <Project>{f43cc265-bbbe-42e7-8bc3-16371c6ce5cb}</Project>
+      <Name>ProjetWeb.MODEL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

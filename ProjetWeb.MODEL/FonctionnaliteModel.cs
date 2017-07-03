@@ -10,7 +10,6 @@ namespace ProjetWeb.MODEL
     {
         public int ID_Fonctionnalite { get; set; }
         public String Nom_Fonctionnalite { get; set; }
-
         public FonctionnaliteModel()
         {
 

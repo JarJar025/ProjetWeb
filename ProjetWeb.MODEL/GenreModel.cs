@@ -12,7 +12,6 @@ namespace ProjetWeb.MODEL
         public String nom_genre { get; set; }
         public String description { get; set; }
         public Boolean purge { get; set; }
-
         public GenreModel()
         {
 

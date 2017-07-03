@@ -83,9 +83,6 @@
     <Compile Include="Ressource.cs">
       <DependentUpon>BDD_GRP2.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>BDD_GRP2.tt</DependentUpon>
-    </Compile>
     <Compile Include="Utilisateur.cs">
       <DependentUpon>BDD_GRP2.tt</DependentUpon>
     </Compile>

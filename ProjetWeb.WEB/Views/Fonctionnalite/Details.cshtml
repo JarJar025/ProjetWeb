@@ -1,0 +1,32 @@
+﻿@model ProjetWeb.MODEL.FonctionnaliteModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fonctionnalite</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Fonctionnalite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_Fonctionnalite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom_Fonctionnalite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom_Fonctionnalite)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
