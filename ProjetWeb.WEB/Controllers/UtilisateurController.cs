@@ -48,13 +48,13 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nom_User,Prenom,Mail,Password,Last_login,Deconnexion,Nom_Profil")] UtilisateurModel utilisateur)
+        public ActionResult Create([Bind(Include = "Nom_User,Prenom,Mail,Password,Nom_Profil")] UtilisateurModel utilisateur)
         {
             if (ModelState.IsValid)
             {
-                BLuser.setCreateUtilisateur(utilisateur.Nom_User, utilisateur.Prenom, utilisateur.Mail, utilisateur.Password, utilisateur.Last_Login, utilisateur.Deconnexion, utilisateur.Nom_Profil);
+                BLuser.setCreateUtilisateur(utilisateur.Nom_User, utilisateur.Prenom, utilisateur.Mail, utilisateur.Password, utilisateur.Nom_Profil);
             }
-            return RedirectToRoute("../Views/LigneResa/Create");
+            return RedirectToAction("index");
         }
 
         // GET: Utilisateurs/Edit/5
@@ -78,11 +78,12 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Nom_User,Prenom,Mail,Password,Last_Login,Deconnexion,ID_User,Nom_Profil,Purge")] UtilisateurModel utilisateur)
+        public ActionResult Edit([Bind(Include = "Nom_User,Prenom,Mail,Password,ID_User,Nom_Profil,Purge,Last_Login,Deconnexion")] UtilisateurModel utilisateur)
         {
             if (ModelState.IsValid)
             {
-                BLuser.setEditUtilisateur(utilisateur.Nom_User, utilisateur.Prenom, utilisateur.Mail, utilisateur.Password, utilisateur.Last_Login, utilisateur.Deconnexion, utilisateur.ID_User, utilisateur.Nom_Profil, utilisateur.Purge);
+                BLuser.setEditUtilisateur(utilisateur);
+                //BLuser.setEditUtilisateur(utilisateur.Nom_User, utilisateur.Prenom, utilisateur.Mail, utilisateur.Password, utilisateur.ID_User, utilisateur.Nom_Profil, utilisateur.Purge);
             }
             return RedirectToAction("Index");
         }

@@ -69,19 +69,19 @@ namespace ProjetWeb.BL
             return UtilisateurNoPurge;
         }
         // Editer l'utilisateur
-        public UtilisateurModel setEditUtilisateur(string nom_user, string prenom, string mail, string password, DateTime last_login, int deconnexion, int id_user, string nom_profil, Boolean purge)
+        public UtilisateurModel setEditUtilisateur(UtilisateurModel model)
         {
             // On lie les réponses du formulaire d'édition qui seront en paramètres à un Utilisateur de la BDD
             Utilisateur utilisateur = new Utilisateur();
-            utilisateur.Nom_Utilisateur = nom_user;
-            utilisateur.Prenom = prenom;
-            utilisateur.Mail = mail;
-            utilisateur.Password = password;
-            utilisateur.Last_login = last_login;
-            utilisateur.Deconnexion = deconnexion;
-            utilisateur.ID_User = id_user;
-            utilisateur.ID_Profil = db.Profil.Where(v => v.Nom_Profil == nom_profil).FirstOrDefault().ID_Profil;
-            utilisateur.Purge = purge;
+            utilisateur.Nom_Utilisateur = model.Nom_User;
+            utilisateur.Prenom = model.Prenom;
+            utilisateur.Mail = model.Mail;
+            utilisateur.Password = model.Password;
+            utilisateur.Last_login = model.Last_Login;
+            utilisateur.Deconnexion = model.Deconnexion;
+            utilisateur.ID_User = model.ID_User;
+            utilisateur.ID_Profil = db.Profil.Where(v => v.Nom_Profil == model.Nom_Profil).FirstOrDefault().ID_Profil;
+            utilisateur.Purge = model.Purge;
             // Envoi de la modification des données de l'utilisateur dans la BDD
             db.Entry(utilisateur).State = EntityState.Modified;
             db.SaveChanges();
@@ -91,14 +91,14 @@ namespace ProjetWeb.BL
             user.Prenom = utilisateur.Prenom;
             user.Mail = utilisateur.Mail;
             user.Password = utilisateur.Password;
-            user.Last_Login = (DateTime)utilisateur.Last_login;
-            user.Deconnexion = (int)utilisateur.Deconnexion;
+            user.Last_Login = user.Last_Login;
+            user.Deconnexion = user.Deconnexion;
             user.ID_User = (int)utilisateur.ID_User;
             user.Nom_Profil = db.Profil.Where(v => v.ID_Profil == utilisateur.ID_Profil).FirstOrDefault().Nom_Profil;
             user.Purge = (Boolean)utilisateur.Purge;
             return user;
         }
-        public void setCreateUtilisateur(string nom_user, string prenom, string mail, string password, DateTime last_login, int deconnexion, string nom_profil)
+        public void setCreateUtilisateur(string nom_user, string prenom, string mail, string password , string nom_profil)
         {
             // On lie les réponses du formulaire d'ajout qui seront en paramètres à un Utilisateur de la BDD
             Utilisateur utilisateur = new Utilisateur();
@@ -106,8 +106,8 @@ namespace ProjetWeb.BL
             utilisateur.Prenom = prenom;
             utilisateur.Mail = mail;
             utilisateur.Password = password;
-            utilisateur.Last_login = last_login;
-            utilisateur.Deconnexion = deconnexion;
+            utilisateur.Last_login = System.DateTime.Today;
+            utilisateur.Deconnexion = 0;
             utilisateur.ID_Profil = db.Profil.Where(v => v.Nom_Profil == nom_profil).FirstOrDefault().ID_Profil;
             utilisateur.Purge = false;
             // On ajoute l'utilisateur

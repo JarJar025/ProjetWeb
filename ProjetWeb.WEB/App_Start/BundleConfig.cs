@@ -17,6 +17,8 @@ namespace ProjetWeb.WEB
             bundles.Add(new ScriptBundle("~/bundles/jquerydatetime").Include(
                 "~/Scripts/jquery-ui-1.12.1.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquerydatetime").Include(
+                "~/Scripts/dataTables/jquery.dataTables.min.js"));
 
             // Utilisez la version de développement de Modernizr pour le développement et l'apprentissage. Puis, une fois
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
@@ -31,6 +33,7 @@ namespace ProjetWeb.WEB
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
+                      "~/Content/dataTables/css/jquery.dataTables.min.css",
                       "~/Content/themes/base/datepicker.css",
                       "~/Content/themes/base/jquery-ui.min.css"));
         }
