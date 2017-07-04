@@ -1,0 +1,58 @@
+﻿@model ProjetWeb.MODEL.ReservationModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutLecteur.cshtml";
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reservation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_Reservation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_Reservation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Debut_Resa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Debut_Resa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Fin_Resa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Fin_Resa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Resa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Resa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom_User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom_User)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
