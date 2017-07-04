@@ -64,7 +64,7 @@ namespace ProjetWeb.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                BLuser.setEditUtilisateur(utilisateur.Nom_User, utilisateur.Prenom, utilisateur.Mail, utilisateur.Password, utilisateur.Last_Login, utilisateur.Deconnexion, utilisateur.ID_User, utilisateur.Nom_Profil, utilisateur.Purge);
+                BLuser.setEditUtilisateur(utilisateur);
             }
             return RedirectToAction("Index");
         }
