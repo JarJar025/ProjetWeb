@@ -153,10 +153,16 @@
     <Compile Include="Controllers\FonctionnaliteController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomeLecteurController.cs" />
+    <Compile Include="Controllers\HomeUtilisateurController.cs" />
     <Compile Include="Controllers\LigneResaController.cs" />
+    <Compile Include="Controllers\LigneResaUtilisateurController.cs" />
     <Compile Include="Controllers\ProfilController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Controllers\ReservationLecteursController.cs" />
+    <Compile Include="Controllers\ReservationUtilisateurController.cs" />
     <Compile Include="Controllers\RessourceController.cs" />
+    <Compile Include="Controllers\RessourceUtilisateurController.cs" />
     <Compile Include="Controllers\UtilisateurController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -456,11 +462,6 @@
     <Content Include="Views\Authentification\Index.cshtml" />
     <Content Include="Views\Fonctionnalite\Details.cshtml" />
     <Content Include="Views\Fonctionnalite\Index.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Index.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Edit.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Details.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Delete.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Create.cshtml" />
     <Content Include="Views\LigneResa\Create.cshtml" />
     <Content Include="Views\LigneResa\Delete.cshtml" />
     <Content Include="Views\LigneResa\Details.cshtml" />
@@ -485,13 +486,31 @@
     <Content Include="Views\Utilisateur\Create.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
-    <Content Include="Views\Reservation\ReservationLecteur\Index.cshtml" />
-    <Content Include="Views\Reservation\ReservationLecteur\Details.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Views\Genre\Edit.cshtml" />
     <Content Include="Views\Genre\Details.cshtml" />
     <Content Include="Views\Genre\Delete.cshtml" />
     <Content Include="Views\Genre\Create.cshtml" />
+    <Content Include="Views\Shared\_LayoutLecteur.cshtml" />
+    <Content Include="Views\ReservationLecteurs\Index.cshtml" />
+    <Content Include="Views\ReservationLecteurs\Details.cshtml" />
+    <Content Include="Views\HomeLecteur\Index.cshtml" />
+    <Content Include="Views\HomeLecteur\Details.cshtml" />
+    <Content Include="Views\HomeLecteur\Edit.cshtml" />
+    <Content Include="Views\HomeUtilisateur\Index.cshtml" />
+    <Content Include="Views\HomeUtilisateur\Edit.cshtml" />
+    <Content Include="Views\HomeUtilisateur\Details.cshtml" />
+    <Content Include="Views\Shared\_LayoutUtilisateur.cshtml" />
+    <Content Include="Views\ReservationUtilisateur\Index.cshtml" />
+    <Content Include="Views\ReservationUtilisateur\Edit.cshtml" />
+    <Content Include="Views\ReservationUtilisateur\Details.cshtml" />
+    <Content Include="Views\ReservationUtilisateur\Create.cshtml" />
+    <Content Include="Views\LigneResaUtilisateur\Index.cshtml" />
+    <Content Include="Views\LigneResaUtilisateur\Edit.cshtml" />
+    <Content Include="Views\LigneResaUtilisateur\Details.cshtml" />
+    <Content Include="Views\LigneResaUtilisateur\Create.cshtml" />
+    <Content Include="Views\RessourceUtilisateur\Index.cshtml" />
+    <Content Include="Views\RessourceUtilisateur\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

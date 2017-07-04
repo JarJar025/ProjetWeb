@@ -12,6 +12,7 @@ namespace ProjetWeb.MODEL
         public string Nom_User { get; set; }
         //définition public du getter permettant d'acceder aux données et du setter permettant de modifier les données pour l'attribut Prenom
         public string Prenom { get; set; }
+        public string NomComplet { get; set; }
         //définition public du getter permettant d'acceder aux données et du setter permettant de modifier les données pour l'attribut Mail
         public string Mail { get; set; }
         //définition public du getter permettant d'acceder aux données et du setter permettant de modifier les données pour l'attribut Password
@@ -33,10 +34,11 @@ namespace ProjetWeb.MODEL
 
         }
         //Contructeur par défaut avec tous les attributs
-        public UtilisateurModel(string n, string pr, string m, string pa, string np, DateTime ll, int d, Boolean pu, int uid, int pid)
+        public UtilisateurModel(string n, string pr, string nc, string m, string pa, string np, DateTime ll, int d, Boolean pu, int uid, int pid)
         {
             Nom_User = n;
             Prenom = pr;
+            NomComplet = nc;
             Mail = m;
             Password = pa;
             Nom_Profil = np;

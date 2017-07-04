@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ProjetWeb.BL;
 using ProjetWeb.MODEL;
+
 namespace ProjetWeb.WEB.Controllers
 {
     public class AuthentificationController : Controller
@@ -22,15 +23,29 @@ namespace ProjetWeb.WEB.Controllers
 
             UtilisateurModel utilisateurverif = new UtilisateurModel();
             utilisateurverif = BLutilisateur.getTestConnexion(utilisateur.Mail, utilisateur.Password);
-            if (String.IsNullOrEmpty(utilisateurverif.Mail))
+            if (utilisateur.Mail != null || utilisateur.Mail !="")
             {
 
-            }
-            else
-            {
                 if ((utilisateur.Mail == utilisateurverif.Mail) && (utilisateur.Password == utilisateurverif.Password))
                 {
-                    return RedirectToAction("/../Home/Index");
+                    if (utilisateurverif.Purge == false)
+                    {
+                        if (utilisateurverif.Nom_Profil == "Lecteur")
+                        {
+                            Session["IDUser"] = utilisateurverif.ID_User;
+                            return RedirectToAction("/../HomeLecteur/Index");
+                        }
+                        else if (utilisateurverif.Nom_Profil == "Utilisateur")
+                        {
+                            Session["IDUser"] = utilisateurverif.ID_User;
+                            return RedirectToAction("/../HomeUtilisateur/Index");
+                        }
+                        else if (utilisateurverif.Nom_Profil == "Administrateur")
+                        {
+                            return RedirectToAction("/../Home/Index");
+                        }
+                    }
+
                 }
             }
             return RedirectToAction("Index");

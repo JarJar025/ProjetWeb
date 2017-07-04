@@ -130,7 +130,18 @@ namespace ProjetWeb.BL
             {
                 Mail = u.Mail,
                 Password = u.Password,
-                ID_Profil = u.ID_Profil
+                Nom_Profil = db.Profil.Where(v => v.ID_Profil == u.ID_Profil).FirstOrDefault().Nom_Profil,
+                ID_User = u.ID_User,
+                Purge = (Boolean)u.Purge
+            }).FirstOrDefault();
+            return UtilisateurById;
+        }
+        public UtilisateurModel GetNomPrenomUtilisateur(int id)
+        {
+            var UtilisateurById = db.Utilisateur.Where(p => p.ID_User == id).Select(u => new UtilisateurModel()
+            {
+                Nom_User = u.Nom_Utilisateur,
+                Prenom = u.Prenom,
             }).FirstOrDefault();
             return UtilisateurById;
         }

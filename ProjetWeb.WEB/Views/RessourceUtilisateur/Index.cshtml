@@ -1,0 +1,59 @@
+﻿@model List<ProjetWeb.MODEL.RessourceModel>
+@{
+    Layout = "~/Views/Shared/_LayoutUtilisateur.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table">
+    <tr>
+        <th>
+            <h4>Nom Ressource</h4>
+        </th>
+        <th>
+            <h4>Disponibilité</h4>
+        </th>
+        <th>
+            <h4>Description</h4>
+        </th>
+        <th>
+            <h4>Date_Achat</h4>
+        </th>
+        <th>
+            <h4>QRCode</h4>
+        </th>
+        <th>
+            <h4>Nom Genre</h4>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom_Ressource)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disponibilite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Achat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QRCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom_Genre)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.ID_Ressource })
+            </td>
+        </tr>
+    }
+
+</table>
+
