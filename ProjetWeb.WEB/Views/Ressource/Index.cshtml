@@ -5,7 +5,7 @@
 
 <h2>Index</h2>
 
-<p>
+<p type="button" class="btn btn-success">
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table" id="dt-table">
@@ -55,10 +55,16 @@
                     @Html.DisplayFor(modelItem => item.Nom_Genre)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_Ressource }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_Ressource }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_Ressource })
-                </td>
+                    <div type="button" class="btn btn-warning">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Ressource })
+                    </div>
+                    <div type="button" class="btn btn-success">
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_Ressource })
+                    </div>
+                    <div type="button" class="btn btn-danger">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Ressource })
+                    </div>
+</td>
             </tr>
         }
     </tbody>
@@ -68,7 +74,9 @@
 {
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#dt-table').DataTable();
+            $('#dt-table').DataTable({
+                "language": { "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/French.json" }
+            });
         });
     </script>
 }
