@@ -583,11 +583,6 @@
     <Content Include="Views\Authentification\Index.cshtml" />
     <Content Include="Views\Fonctionnalite\Details.cshtml" />
     <Content Include="Views\Fonctionnalite\Index.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Index.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Edit.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Details.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Delete.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Create.cshtml" />
     <Content Include="Views\LigneResa\Create.cshtml" />
     <Content Include="Views\LigneResa\Delete.cshtml" />
     <Content Include="Views\LigneResa\Details.cshtml" />
@@ -612,6 +607,13 @@
     <Content Include="Views\Utilisateur\Create.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Reservation\ReservationLecteur\Index.cshtml" />
+    <Content Include="Views\Reservation\ReservationLecteur\Details.cshtml" />
+    <Content Include="Views\Genre\Index.cshtml" />
+    <Content Include="Views\Genre\Edit.cshtml" />
+    <Content Include="Views\Genre\Details.cshtml" />
+    <Content Include="Views\Genre\Delete.cshtml" />
+    <Content Include="Views\Genre\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

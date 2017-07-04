@@ -7,30 +7,42 @@
 
 <h2>Index</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            <h4>ID Fonctionnalite</h4>
-        </th>
-        <th>
-            <h4>Nom Fonctionnalite</h4>
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table class="table" id="dt-table">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_Fonctionnalite)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom_Fonctionnalite)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.ID_Fonctionnalite }) |
-            </td>
+            <th>
+                <h4>ID Fonctionnalite</h4>
+            </th>
+            <th>
+                <h4>Nom Fonctionnalite</h4>
+            </th>
+            <th></th>
         </tr>
-    }
-
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Fonctionnalite)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_Fonctionnalite)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_Fonctionnalite }) |
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dt-table').DataTable({
+                "language": { "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/French.json" }
+            });
+        });
+    </script>
+}

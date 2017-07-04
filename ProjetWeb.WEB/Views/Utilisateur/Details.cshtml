@@ -69,6 +69,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_User }) |
-    @Html.ActionLink("Back to List", "Index")
+    <div type="button" class="btn btn-warning">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID_User })
+    </div>
+   <div type="button" class="btn btn-default">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 </p>

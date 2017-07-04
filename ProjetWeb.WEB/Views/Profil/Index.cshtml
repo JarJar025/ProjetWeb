@@ -9,9 +9,7 @@
 <table class="table" id="dt-table">
     <thead>
         <tr>
-            <th>
-                <h4>Profil</h4>
-            </th>
+            
             <th>
                 <h4>ID Profil</h4>
             </th>
@@ -39,11 +37,14 @@
     </tbody>
 </table>
 
+
 @section scripts
 {
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#dt-table').DataTable();
+            $('#dt-table').DataTable({
+                "language": { "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/French.json" }
+            });
         });
     </script>
 }
