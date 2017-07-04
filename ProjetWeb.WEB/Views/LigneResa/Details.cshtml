@@ -54,6 +54,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Ligne_Reservation }) |
-    @Html.ActionLink("Back to List", "Index")
+    <div type="button" class="btn btn-warning">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Ligne_Reservation })
+    </div>
+    <div type="button" class="btn btn-default">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 </p>

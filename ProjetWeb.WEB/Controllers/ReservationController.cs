@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using ProjetWeb.BL;
 using ProjetWeb.MODEL;
 namespace ProjetWeb.WEB.Controllers
@@ -103,11 +104,12 @@ namespace ProjetWeb.WEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateConfirmed([Bind(Include = "Date_Debut_Resa,Date_Fin_Resa,Date_Resa,Nom_User,Purge")] ReservationModel reservation)
         {
+
             if (ModelState.IsValid)
             {
                 BLresa.setCreateResa(reservation.Date_Debut_Resa, reservation.Date_Fin_Resa, reservation.Date_Resa, reservation.Nom_User, reservation.Purge);
             }
-            return RedirectToAction("Index");
+            return RedirectToRoute("../LigneResa/Create");
         }
     }
 }
