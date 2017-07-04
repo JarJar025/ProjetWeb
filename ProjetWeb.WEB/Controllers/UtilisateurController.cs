@@ -54,7 +54,7 @@ namespace ProjetWeb.WEB.Controllers
             {
                 BLuser.setCreateUtilisateur(utilisateur.Nom_User, utilisateur.Prenom, utilisateur.Mail, utilisateur.Password, utilisateur.Last_Login, utilisateur.Deconnexion, utilisateur.Nom_Profil);
             }
-            return RedirectToAction("Index");
+            return RedirectToRoute("../Views/LigneResa/Create");
         }
 
         // GET: Utilisateurs/Edit/5
