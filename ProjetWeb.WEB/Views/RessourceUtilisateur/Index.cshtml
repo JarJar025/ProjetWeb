@@ -5,7 +5,8 @@
 }
 
 <h2>Index</h2>
-<table class="table">
+<table class="table" id="dt-table">
+    <thead>
     <tr>
         <th>
             <h4>Nom Ressource</h4>
@@ -27,33 +28,46 @@
         </th>
         <th></th>
     </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom_Ressource)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Disponibilite)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date_Achat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QRCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom_Genre)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.ID_Ressource })
-            </td>
-        </tr>
-    }
-
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_Ressource)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Disponibilite)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_Achat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QRCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_Genre)
+                </td>
+                <td>
+                    <div type="button" class="btn btn-success">
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_Ressource })
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dt-table').DataTable({
+                "language": { "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/French.json" }
+            });
+        });
+    </script>
+}

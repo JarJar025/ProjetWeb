@@ -35,7 +35,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Date_Resa, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Date_Resa, new { @Value = System.DateTime.Today.ToString("dd/MM/yyyy"), @class = "datepicker" })
+                @Html.TextBoxFor(model => model.Date_Resa, new { @Value = System.DateTime.Today.ToString("dd/MM/yyyy"), @class = " form-control datepicker" })
                 @Html.ValidationMessageFor(model => model.Date_Resa)
             </div>
         </div>
@@ -51,7 +51,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-warning"  />
             </div>
         </div>
     </div>

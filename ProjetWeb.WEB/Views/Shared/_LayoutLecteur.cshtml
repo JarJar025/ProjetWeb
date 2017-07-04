@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mon application ASP.NET</title>
@@ -10,8 +10,10 @@
 </head>
 <body>
     <div class="navbar  navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
+        <div class="container-fluid">
+            <div class="col-sm-2 col-md-2">
+            </div>
+            <div class="navbar-header col-sm-2 col-md-2">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -19,11 +21,16 @@
                 </button>
                 @Html.ActionLink("Nom de l'application", "Index", "HomeLecteur", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="col-sm-7 col-md-7">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Accueil", "Index", "HomeLecteur")</li>
                     <li>@Html.ActionLink("Reservation", "Index", "ReservationLecteurs")</li>
                 </ul>
+            </div>
+            <div class="col-sm-1 col-md-1">
+                <div type="button" value="Deconnexion" method="post" class="btn btn-default" style="margin-top:7%">
+                       @Html.ActionLink("Deconnexion", "../Authentification/Index","Authentification")
+                </div>
             </div>
         </div>
     </div>
@@ -36,7 +43,9 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquerydatetime")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquerydt")
     @RenderSection("scripts", required: false)
 </body>
 </html>

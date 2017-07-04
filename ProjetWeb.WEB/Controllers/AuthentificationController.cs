@@ -47,6 +47,9 @@ namespace ProjetWeb.WEB.Controllers
                     }
 
                 }
+                else
+                {
+                }
             }
             return RedirectToAction("Index");
         }

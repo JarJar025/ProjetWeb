@@ -5,8 +5,13 @@
 }
 @foreach (var item in Model)
 {
-<div class="form-group">
-   <h3 Class="page-header"> Bienvenue @Html.DisplayFor(modelItem => item.NomComplet)</h3>
-    @Html.ActionLink("Mes informations de Profil", "Details", new { id = item.ID_User })
-</div>
-    }
+    <div class="form-group">
+       <h3 Class="page-header"> Bienvenue @Html.DisplayFor(modelItem => item.NomComplet)</h3>
+        <div type="button" class="btn btn-warning">
+            @Html.ActionLink("Editer Mes informations", "Edit", new { id = item.ID_User })
+        </div>
+        <div type="button" class="btn btn-success">
+            @Html.ActionLink("Mes informations de Profil", "Details", new { id = item.ID_User })
+        </div>
+        </div>
+}
