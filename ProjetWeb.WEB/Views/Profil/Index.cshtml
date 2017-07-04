@@ -29,8 +29,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Nom_Profil)
                 </td>
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_Profil }) |
+                <td type="button" class="btn btn-success">
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_Profil }) 
                 </td>
             </tr>
         }
