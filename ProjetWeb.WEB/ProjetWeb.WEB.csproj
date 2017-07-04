@@ -456,11 +456,6 @@
     <Content Include="Views\Authentification\Index.cshtml" />
     <Content Include="Views\Fonctionnalite\Details.cshtml" />
     <Content Include="Views\Fonctionnalite\Index.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Index.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Edit.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Details.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Delete.cshtml" />
-    <Content Include="Views\Fonctionnalite\Genre\Create.cshtml" />
     <Content Include="Views\LigneResa\Create.cshtml" />
     <Content Include="Views\LigneResa\Delete.cshtml" />
     <Content Include="Views\LigneResa\Details.cshtml" />

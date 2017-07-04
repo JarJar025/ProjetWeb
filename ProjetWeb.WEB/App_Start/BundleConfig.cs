@@ -14,6 +14,9 @@ namespace ProjetWeb.WEB
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquerydt").Include(
+                "~/Scripts/DataTables/jquery.dataTables.min.js"));
+
             // Utilisez la version de développement de Modernizr pour le développement et l'apprentissage. Puis, une fois
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -25,7 +28,8 @@ namespace ProjetWeb.WEB
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/DataTables/css/jquery.dataTables.min.css"));
         }
     }
 }
