@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using ProjetWeb.BL;
 using ProjetWeb.MODEL;
+using System.Web.Security;
+using Newtonsoft.Json;
 
 namespace ProjetWeb.WEB.Controllers
 {
@@ -16,6 +18,7 @@ namespace ProjetWeb.WEB.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index([Bind(Include = "Mail,Password")] UtilisateurModel utilisateur)
@@ -23,14 +26,14 @@ namespace ProjetWeb.WEB.Controllers
 
             UtilisateurModel utilisateurverif = new UtilisateurModel();
             utilisateurverif = BLutilisateur.getTestConnexion(utilisateur.Mail, utilisateur.Password);
-            if (utilisateur.Mail != null || utilisateur.Mail !="")
+            if (utilisateur.Mail != null || utilisateur.Mail != "")
             {
-
                 if ((utilisateur.Mail == utilisateurverif.Mail) && (utilisateur.Password == utilisateurverif.Password))
                 {
                     if (utilisateurverif.Purge == false)
                     {
-                        if (utilisateurverif.Nom_Profil == "Lecteur")
+
+                        if (utilisateurverif.Nom_Profil.Contains("Lecteur"))
                         {
                             Session["IDUser"] = utilisateurverif.ID_User;
                             return RedirectToAction("/../HomeLecteur/Index");
@@ -45,13 +48,14 @@ namespace ProjetWeb.WEB.Controllers
                             return RedirectToAction("/../Home/Index");
                         }
                     }
-
                 }
-                else
-                {
-                }
+                
             }
             return RedirectToAction("Index");
+        }
+        public ActionResult Deconnexion()
+        {
+            return RedirectToAction("/../Authentification/Index");
         }
     }
 }

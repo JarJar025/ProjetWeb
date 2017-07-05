@@ -2,7 +2,9 @@
 @{
     Layout = null;
 }
-
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,25 +13,23 @@
     <link rel="stylesheet" type="text/css" href="../../Content/bootstrap.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../../Content/css.css" media="screen" />
 </head>
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <body>
-        <div class="container-fluid">
-            <div>
-                <div class="col-sm-3 col-md-3" style="margin-top:20%;">
-                </div>
-                <div class="col-sm-6 col-md-6" style="margin-top:20%;">
-                    <h2 class="text-center">Authentification</h2>
-                </div>
-                <div class="col-sm-3 col-md-3" style="margin-top:20%;">
-                </div>
+
+<body>
+    <div class="container-fluid">
+        <div>
+            <div class="col-sm-3 col-md-3" style="margin-top:20%;">
             </div>
-            <div>
-                <div class="col-sm-4 col-md-4" style="margin-top:20%;">
-                </div>
-                <div class="col-sm-4 col-md-4">
-                    <form class="form-horizontal">
+            <div class="col-sm-6 col-md-6" style="margin-top:20%;">
+                <h2 class="text-center">Authentification</h2>
+            </div>
+            <div class="col-sm-3 col-md-3" style="margin-top:20%;">
+            </div>
+        </div>
+        <div>
+            <div class="col-sm-4 col-md-4" style="margin-top:20%;">
+            </div>
+            <div class="col-sm-4 col-md-4">
+                    <forms  class="form-horizontal">
                         <div class="form-group">
                             @Html.LabelFor(model => model.Mail, htmlAttributes: new { @class = "control-label col-sm-2 col-md-2" })
                             <div class="col-sm-8 col-md-8">
@@ -40,25 +40,32 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-sm-2 col-md-2" })
                             <div class="col-sm-8 col-md-8">
-                               @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", @type = "password" } })
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", @type = "password" } })
                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                             </div>
                         </div><br />
                         <div class="form-group">
                             <div class="col-sm-2 col-md-2"></div>
                             <div class="col-sm-8 col-md-8">
-                                <button id="verifcredential" type="submit" onclick="VerifCredential()" class="form-control btn-default">Connexion</button>
+                                <button id="verifcredential" type="submit" class="form-control btn-default">Connexion</button>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="col-sm-4 col-md-4" style="margin-top:20%;">
-                </div>
+                    </forms>
+            </div>
+            <div class="col-sm-4 col-md-4" style="margin-top:20%;">
             </div>
         </div>
-    </body>
-}
+        @if (ViewBag.Result == false)
+        {
+            //your code
+        }
+    </div>
+</body>
+
+
+
 </html>
+}
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
