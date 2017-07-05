@@ -52,7 +52,40 @@ namespace ProjetWeb.BL
             }).ToList();
             return LigneResaNoPurge;
         }
+        public List<LigneResaModel> getLigneResaNoPurgeForUtilisateur(int ID_user)
+        {
+            var ReservationUser = db.Reservation.Where(y => y.Purge == false).Where(u => u.ID_User == ID_user).Select(l => new ReservationModel()
+            {
+                id_Reservation = l.ID_Reservation,
+            }).ToList();
+            var LigneResaNoPurge = db.Ligne_Reservation.Where(y => y.Purge == false).Select(l => new LigneResaModel()
+            {
+                ID_Ligne_Reservation = l.ID_Ligne_Reservation,
+                Date_Debut = (DateTime)l.Date_Debut,
+                Date_Fin = (DateTime)l.Date_Fin,
+                ID_Reservation = l.ID_Reservation,
+                ID_Ressource = l.ID_Ressource
 
+            }).ToList();
+            List<LigneResaModel> LigneResaNoPurgeForUtilisateur = new List<LigneResaModel>();
+            foreach (ReservationModel r in ReservationUser)
+            {
+                foreach(LigneResaModel lr in LigneResaNoPurge)
+                {
+                    if(r.id_Reservation == lr.ID_Reservation)
+                    {
+                        lr.CheckEdit = true;
+                        LigneResaNoPurgeForUtilisateur.Add(lr);
+                    }
+                    if(r.id_Reservation != lr.ID_Reservation)
+                    {
+                        lr.CheckEdit = false;
+                        LigneResaNoPurgeForUtilisateur.Add(lr);
+                    }
+                }
+            }
+            return LigneResaNoPurgeForUtilisateur;
+        }
         // Editer la ligne de reservation
         public LigneResaModel setEditLigneResa(int id_Ligne_Resa, DateTime date_debut, DateTime date_fin, int id_ressource, int id_reservation, Boolean purge)
         {
@@ -123,6 +156,18 @@ namespace ProjetWeb.BL
                     Value = r.ID_Ressource.ToString(),
                     Text = r.Nom_Ressource
                 });
+
+            return new SelectList(resa, "Value", "Text");
+        }
+
+        public IEnumerable<SelectListItem> getIntReservationUtilisateur(int ID)
+        {
+            var resa = db.Reservation.Where(p => p.Purge == false).Where(u => u.ID_User == ID).Select(r =>
+                    new SelectListItem
+                    {
+                        Value = r.ID_Reservation.ToString(),
+                        Text = r.ID_Reservation.ToString()
+                    });
 
             return new SelectList(resa, "Value", "Text");
         }

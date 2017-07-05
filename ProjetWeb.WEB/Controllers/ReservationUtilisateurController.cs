@@ -11,10 +11,10 @@ namespace ProjetWeb.WEB.Controllers
     public class ReservationUtilisateurController : Controller
     {
         private ReservationBL BLresa = new ReservationBL();
-
+        private UtilisateurBL BLuser = new UtilisateurBL();
         // GET: Reservation
         public ActionResult Index()
-        {
+        {  
             List<ReservationModel> reservation = new List<ReservationModel>();
             reservation = BLresa.getResaNoPurge();
             return View(reservation);
@@ -76,11 +76,23 @@ namespace ProjetWeb.WEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateConfirmed([Bind(Include = "Date_Debut_Resa,Date_Fin_Resa,Date_Resa,Nom_User,Purge")] ReservationModel reservation)
         {
-            if (ModelState.IsValid)
+            int ID_User = int.Parse(Session["IDUser"].ToString());
+            UtilisateurModel utilisateur = new UtilisateurModel();
+            utilisateur = BLuser.getUtilisateurbyId((int)ID_User);
+            if(utilisateur.Nom_User == reservation.Nom_User)
             {
-                BLresa.setCreateResa(reservation.Date_Debut_Resa, reservation.Date_Fin_Resa, reservation.Date_Resa, reservation.Nom_User, reservation.Purge);
+                if (ModelState.IsValid)
+                {
+                    BLresa.setCreateResa(reservation.Date_Debut_Resa, reservation.Date_Fin_Resa, reservation.Date_Resa, reservation.Nom_User, reservation.Purge);
+                }
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            else
+            {
+                ViewBag.NomUser = false;
+                ViewBag.Message = "Ceci n'est pas votre Nom d'utilisateur. Veuillez saisir votre Nom";
+                return View();
+            }
         }
     }
 }

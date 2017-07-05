@@ -15,6 +15,7 @@ namespace ProjetWeb.WEB.Controllers
         // GET: Reservation
         public ActionResult Index()
         {
+
             List<ReservationModel> reservation = new List<ReservationModel>();
             reservation = BLresa.getResaNoPurge();
             return View(reservation);

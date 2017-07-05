@@ -47,11 +47,18 @@
                 @Html.ValidationMessageFor(model => model.Nom_User, "", new { @class = "text-danger" })
             </div>
         </div>
-
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-warning"  />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2 col-md-2"></div>
+            <div class="col-sm-8 col-md-8">
+                @if (ViewBag.NomUser == false)
+                {
+                    @ViewBag.Message
+                }
             </div>
         </div>
     </div>

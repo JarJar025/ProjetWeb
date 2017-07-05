@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using ProjetWeb.BL;
 using ProjetWeb.MODEL;
+
 namespace ProjetWeb.API.Controllers
 {
     public class FonctionnaliteController : ApiController

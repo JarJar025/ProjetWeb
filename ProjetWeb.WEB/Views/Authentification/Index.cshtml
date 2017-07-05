@@ -49,16 +49,23 @@
                             <div class="col-sm-8 col-md-8">
                                 <button id="verifcredential" type="submit" class="form-control btn-default">Connexion</button>
                             </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2 col-md-2"></div>
+                            <div class="col-sm-8 col-md-8">
+                                @if (ViewBag.Connexion == false)
+                                {
+                                    @ViewBag.Message
+                                }
+                            </div>
                         </div>
                     </forms>
             </div>
             <div class="col-sm-4 col-md-4" style="margin-top:20%;">
             </div>
         </div>
-        @if (ViewBag.Result == false)
-        {
-            //your code
-        }
+
     </div>
 </body>
 

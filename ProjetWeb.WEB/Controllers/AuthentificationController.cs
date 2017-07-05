@@ -26,14 +26,14 @@ namespace ProjetWeb.WEB.Controllers
 
             UtilisateurModel utilisateurverif = new UtilisateurModel();
             utilisateurverif = BLutilisateur.getTestConnexion(utilisateur.Mail, utilisateur.Password);
-            if (utilisateur.Mail != null || utilisateur.Mail != "")
+            if ((utilisateur.Mail != null) && (utilisateur.Password != null))
             {
                 if ((utilisateur.Mail == utilisateurverif.Mail) && (utilisateur.Password == utilisateurverif.Password))
                 {
                     if (utilisateurverif.Purge == false)
                     {
 
-                        if (utilisateurverif.Nom_Profil.Contains("Lecteur"))
+                        if (utilisateurverif.Nom_Profil == "Lecteur")
                         {
                             Session["IDUser"] = utilisateurverif.ID_User;
                             return RedirectToAction("/../HomeLecteur/Index");
@@ -49,7 +49,37 @@ namespace ProjetWeb.WEB.Controllers
                         }
                     }
                 }
+                else
+                {
+                    if(utilisateur.Mail == utilisateurverif.Mail)
+                    {
+                        ViewBag.Connexion = false;
+                        ViewBag.Message = "Echec d'authentification. Votre Mail est incorrect";
+                        return View();
+                    }
+                    if(utilisateur.Password == utilisateurverif.Password)
+                    {
+                        ViewBag.Connexion = false;
+                        ViewBag.Message = "Echec d'authentification. Votre Mot de Passe est incorrect";
+                        return View();
+                    }
+                }
                 
+            }
+            else
+            {
+                if(String.IsNullOrEmpty(utilisateur.Mail))
+                {
+                    ViewBag.Connexion = false;
+                    ViewBag.Message = "Le champ Mail est vide. Veuillez le remplir";
+                    return View();
+                }
+                if(String.IsNullOrEmpty(utilisateur.Password))
+                {
+                    ViewBag.Connexion = false;
+                    ViewBag.Message = "Le champ Mot de passe est vide. Veuillez le remplir";
+                    return View();
+                }
             }
             return RedirectToAction("Index");
         }

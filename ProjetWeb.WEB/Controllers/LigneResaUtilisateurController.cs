@@ -11,11 +11,13 @@ namespace ProjetWeb.WEB.Controllers
     public class LigneResaUtilisateurController : Controller
     {
         private LigneResaBL BLligneresa = new LigneResaBL();
+        private UtilisateurBL BLuser = new UtilisateurBL();
         // GET: LigneResa
         public ActionResult Index()
         {
+            int ID_User = int.Parse(Session["IDUser"].ToString());
             List<LigneResaModel> ligneresa = new List<LigneResaModel>();
-            ligneresa = BLligneresa.getLigneResaNoPurge();
+            ligneresa = BLligneresa.getLigneResaNoPurgeForUtilisateur(ID_User);
             return View(ligneresa);
         }
         // GET: LigneResa/Details/5
@@ -36,6 +38,7 @@ namespace ProjetWeb.WEB.Controllers
         // GET: LigneReservation/Edit/5
         public ActionResult Edit(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -64,9 +67,10 @@ namespace ProjetWeb.WEB.Controllers
         // GET: LigneResa/Create
         public ActionResult Create()
         {
+            int ID_User = int.Parse(Session["IDUser"].ToString());
             var model = new LigneResaViewModel()
             {
-                IdReservation = BLligneresa.getIntReservation(),
+                IdReservation = BLligneresa.getIntReservationUtilisateur(ID_User),
                 IdRessource = BLligneresa.getIntRessource()
 
             };

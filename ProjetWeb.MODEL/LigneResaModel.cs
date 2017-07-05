@@ -14,6 +14,7 @@ namespace ProjetWeb.MODEL
         public Boolean Purge { get; set; }
         public int ID_Reservation { get; set; }
         public int ID_Ressource { get; set; }
+        public Boolean CheckEdit { get; set; }
         public LigneResaModel()
         {
 
