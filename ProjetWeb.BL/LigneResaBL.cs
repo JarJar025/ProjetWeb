@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ProjetWeb.DAL;
 using ProjetWeb.MODEL;
 using System.Data.Entity;
+using System.Web.Mvc;
 
 namespace ProjetWeb.BL
 {
@@ -100,6 +101,30 @@ namespace ProjetWeb.BL
             // On applique ces changements
             db.Entry(ligneResa).State = EntityState.Modified;
             db.SaveChanges();
+        }
+
+        public IEnumerable<SelectListItem> getIntReservation()
+        {
+            var resa = db.Reservation.Where(p => p.Purge == false).Select(r =>
+                    new SelectListItem
+                    {
+                        Value = r.ID_Reservation.ToString(),
+                        Text = r.ID_Reservation.ToString()
+                    });
+
+            return new SelectList(resa, "Value", "Text");
+        }
+
+        public IEnumerable<SelectListItem> getIntRessource()
+        {
+            var resa = db.Ressource.Where(p => p.Purge == false).Select(r =>
+                new SelectListItem
+                {
+                    Value = r.ID_Ressource.ToString(),
+                    Text = r.Nom_Ressource
+                });
+
+            return new SelectList(resa, "Value", "Text");
         }
     }
 }

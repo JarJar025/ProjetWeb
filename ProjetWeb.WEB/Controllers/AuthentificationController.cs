@@ -11,11 +11,14 @@ namespace ProjetWeb.WEB.Controllers
     public class AuthentificationController : Controller
     {
         private UtilisateurBL BLutilisateur = new UtilisateurBL();
+
+
         // GET: Authentification
         public ActionResult Index()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index([Bind(Include = "Mail,Password")] UtilisateurModel utilisateur)

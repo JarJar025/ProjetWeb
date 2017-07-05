@@ -17,7 +17,7 @@ namespace ProjetWeb.WEB
             bundles.Add(new ScriptBundle("~/bundles/jquerydatetime").Include(
                 "~/Scripts/jquery-ui-1.12.1.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jquerydatetime").Include(
+            bundles.Add(new ScriptBundle("~/bundles/jquerydt").Include(
                 "~/Scripts/dataTables/jquery.dataTables.min.js"));
 
             // Utilisez la version de développement de Modernizr pour le développement et l'apprentissage. Puis, une fois
