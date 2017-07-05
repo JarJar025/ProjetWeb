@@ -65,7 +65,13 @@ namespace ProjetWeb.WEB.Controllers
         // GET: LigneResa/Create
         public ActionResult Create()
         {
-            return View();
+            var model = new LigneResaViewModel()
+            {
+                IdReservation = BLligneresa.getIntReservation(),
+                IdRessource = BLligneresa.getIntRessource()
+
+            };
+            return View(model);
         }
         // POST: LigneResa/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 

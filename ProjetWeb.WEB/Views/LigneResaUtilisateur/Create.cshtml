@@ -1,4 +1,4 @@
-﻿@model ProjetWeb.MODEL.LigneResaModel
+﻿@model ProjetWeb.MODEL.LigneResaViewModel
 
 @{
     Layout = "~/Views/Shared/_LayoutUtilisateur.cshtml";
@@ -18,34 +18,34 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Date_Debut, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.LigneResa.Date_Debut, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Date_Debut, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Date_Debut, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.LigneResa.Date_Debut, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                @Html.ValidationMessageFor(model => model.LigneResa.Date_Debut, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Date_Fin, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.LigneResa.Date_Fin, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Date_Fin, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Date_Fin, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.LigneResa.Date_Fin, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                @Html.ValidationMessageFor(model => model.LigneResa.Date_Fin, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ID_Reservation, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SelectedIdReservation, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ID_Reservation, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ID_Reservation, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.SelectedIdReservation, Model.IdReservation)
+                @Html.ValidationMessageFor(model => model.IdReservation, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ID_Ressource, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SelectedIdRessource, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ID_Ressource, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ID_Ressource, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.SelectedIdRessource, Model.IdRessource)
+                @Html.ValidationMessageFor(model => model.IdRessource, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -57,10 +57,17 @@
     </div>
 }
 
-<div type="button" class="btn btn-default">
+<div div type="button" class="btn btn-default">
     @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryval");
+    @Scripts.Render("~/bundles/jquerydatetime")
+
+    <script type="text/javascript">
+        $(function () { // will trigger when the document is ready
+            $('.datepicker').datepicker(); //Initialise any date pickers
+        });
+    </script>
 }
