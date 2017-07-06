@@ -662,6 +662,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProjetWeb.API\ProjetWeb.API.csproj">
+      <Project>{89A29C71-2952-4A1B-8D19-6C1E9394FCBB}</Project>
+      <Name>ProjetWeb.API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjetWeb.BL\ProjetWeb.BL.csproj">
       <Project>{4d9bdda1-6709-4456-be3a-417cbb862cb5}</Project>
       <Name>ProjetWeb.BL</Name>

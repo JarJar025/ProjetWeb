@@ -111,14 +111,28 @@ namespace ProjetWeb.BL
             return ligneResa;
         }
 
-        public void setCreateLigneResa(DateTime date_debut, DateTime date_fin, int id_ressource, int id_reservation)
+        public void setCreateLigneResa(LigneResaViewModel test)
         {
             // On lie les réponses du formulaire d'ajout qui seront en paramètres à un Utilisateur de la BDD
             Ligne_Reservation ligneResa = new Ligne_Reservation();
-            ligneResa.Date_Debut = date_debut;
-            ligneResa.Date_Fin = date_fin;
-            ligneResa.ID_Reservation = id_reservation;
-            ligneResa.ID_Ressource = id_ressource;
+            ligneResa.Date_Debut = test.LigneResa.Date_Debut;
+            ligneResa.Date_Fin = test.LigneResa.Date_Fin;
+            ligneResa.ID_Reservation = test.SelectedIdReservation;
+            ligneResa.ID_Ressource = test.SelectedIdRessource;
+            ligneResa.Purge = false;
+            // On ajoute l'utilisateur
+            db.Ligne_Reservation.Add(ligneResa);
+            db.SaveChanges();
+        }
+
+        public void setCreateLigneResa(LigneResaModel test)
+        {
+            // On lie les réponses du formulaire d'ajout qui seront en paramètres à un Utilisateur de la BDD
+            Ligne_Reservation ligneResa = new Ligne_Reservation();
+            ligneResa.Date_Debut = test.Date_Debut;
+            ligneResa.Date_Fin = test.Date_Fin;
+            ligneResa.ID_Reservation = test.ID_Reservation;
+            ligneResa.ID_Ressource = test.ID_Ressource;
             ligneResa.Purge = false;
             // On ajoute l'utilisateur
             db.Ligne_Reservation.Add(ligneResa);

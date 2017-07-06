@@ -78,11 +78,12 @@ namespace ProjetWeb.WEB.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Create")]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateConfirmed([Bind(Include = "Date_Debut,Date_Fin,ID_Reservation,ID_Ressource")] LigneResaModel ligneResa)
+        public ActionResult CreateConfirmed([Bind(Include = "LigneResa,SelectedIdReservation,SelectedIdRessource")] LigneResaViewModel ligneResa)
         {
+            
             if (ModelState.IsValid)
             {
-                BLligneresa.setCreateLigneResa(ligneResa.Date_Debut, ligneResa.Date_Fin, ligneResa.ID_Reservation, ligneResa.ID_Ressource);
+                BLligneresa.setCreateLigneResa(ligneResa);
             }
             return RedirectToAction("Index");
         }

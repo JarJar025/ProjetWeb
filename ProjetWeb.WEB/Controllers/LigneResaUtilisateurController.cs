@@ -85,7 +85,7 @@ namespace ProjetWeb.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                BLligneresa.setCreateLigneResa(ligneResa.Date_Debut, ligneResa.Date_Fin, ligneResa.ID_Reservation, ligneResa.ID_Ressource);
+                BLligneresa.setCreateLigneResa(ligneResa);
             }
             return RedirectToAction("Index");
         }
