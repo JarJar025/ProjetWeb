@@ -28,35 +28,44 @@ namespace ProjetWeb.WEB.Controllers
             utilisateurverif = BLutilisateur.getTestConnexion(utilisateur.Mail, utilisateur.Password);
             if ((utilisateur.Mail != null) && (utilisateur.Password != null))
             {
-                if ((utilisateur.Mail == utilisateurverif.Mail) && (utilisateur.Password == utilisateurverif.Password))
+                if ((utilisateurverif != null) && (utilisateurverif != null))
                 {
-                    if (utilisateurverif.Purge == false)
+                    if ((utilisateur.Mail == utilisateurverif.Mail) && (utilisateur.Password == utilisateurverif.Password))
+                    {
+                        if (utilisateurverif.Purge == false)
+                        {
+
+                            if (utilisateurverif.Nom_Profil == "Lecteur")
+                            {
+                                Session["IDUser"] = utilisateurverif.ID_User;
+                                return RedirectToAction("/../HomeLecteur/Index");
+                            }
+                            else if (utilisateurverif.Nom_Profil == "Utilisateur")
+                            {
+                                Session["IDUser"] = utilisateurverif.ID_User;
+                                return RedirectToAction("/../HomeUtilisateur/Index");
+                            }
+                            else if (utilisateurverif.Nom_Profil == "Administrateur")
+                            {
+                                return RedirectToAction("/../HomeAdministrateur/Index");
+                            }
+                        }
+                    }
+                    else
                     {
 
-                        if (utilisateurverif.Nom_Profil == "Lecteur")
-                        {
-                            Session["IDUser"] = utilisateurverif.ID_User;
-                            return RedirectToAction("/../HomeLecteur/Index");
-                        }
-                        else if (utilisateurverif.Nom_Profil == "Utilisateur")
-                        {
-                            Session["IDUser"] = utilisateurverif.ID_User;
-                            return RedirectToAction("/../HomeUtilisateur/Index");
-                        }
-                        else if (utilisateurverif.Nom_Profil == "Administrateur")
-                        {
-                            return RedirectToAction("/../HomeAdministrateur/Index");
-                        }
+                        ViewBag.Connexion = false;
+                        ViewBag.Message = "Echec d'authentification. Votre couple Mail/Mot de passe est incorrect";
+                        return View();
                     }
                 }
                 else
                 {
 
-                        ViewBag.Connexion = false;
-                        ViewBag.Message = "Echec d'authentification. Votre couple Mail/Mot de passe est incorrect";
-                        return View();
+                    ViewBag.Connexion = false;
+                    ViewBag.Message = "Echec d'authentification. Votre couple Mail/Mot de passe est incorrect";
+                    return View();
                 }
-                
             }
             else
             {
