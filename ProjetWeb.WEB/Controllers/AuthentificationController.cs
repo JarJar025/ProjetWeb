@@ -51,18 +51,10 @@ namespace ProjetWeb.WEB.Controllers
                 }
                 else
                 {
-                    if(utilisateur.Mail == utilisateurverif.Mail)
-                    {
+
                         ViewBag.Connexion = false;
-                        ViewBag.Message = "Echec d'authentification. Votre Mail est incorrect";
+                        ViewBag.Message = "Echec d'authentification. Votre couple Mail/Mot de passe est incorrect";
                         return View();
-                    }
-                    if(utilisateur.Password == utilisateurverif.Password)
-                    {
-                        ViewBag.Connexion = false;
-                        ViewBag.Message = "Echec d'authentification. Votre Mot de Passe est incorrect";
-                        return View();
-                    }
                 }
                 
             }
