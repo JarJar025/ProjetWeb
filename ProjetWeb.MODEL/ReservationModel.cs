@@ -15,6 +15,7 @@ namespace ProjetWeb.MODEL
         public Boolean Purge { get; set; }
         public int id_User { get; set; }
         public String Nom_User { get; set; }
+        public Boolean CheckEdit { get; set; }
         public ReservationModel()
         {
 

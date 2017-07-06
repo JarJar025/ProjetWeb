@@ -12,11 +12,13 @@ namespace ProjetWeb.WEB.Controllers
     {
         private ReservationBL BLresa = new ReservationBL();
         private UtilisateurBL BLuser = new UtilisateurBL();
+        private ProfilBL Blprofil = new ProfilBL();
         // GET: Reservation
         public ActionResult Index()
-        {  
+        {
+            int ID_User = int.Parse(Session["IDUser"].ToString());
             List<ReservationModel> reservation = new List<ReservationModel>();
-            reservation = BLresa.getResaNoPurge();
+            reservation = BLresa.getResaNoPurgeUtilisateur(ID_User);
             return View(reservation);
 
         }
@@ -79,20 +81,41 @@ namespace ProjetWeb.WEB.Controllers
             int ID_User = int.Parse(Session["IDUser"].ToString());
             UtilisateurModel utilisateur = new UtilisateurModel();
             utilisateur = BLuser.getUtilisateurbyId((int)ID_User);
-            if(utilisateur.Nom_User == reservation.Nom_User)
+            List<string> profilNom = new List<string>();
+            List<UtilisateurModel> user = new List<UtilisateurModel>();
+            user = BLuser.getUtilisateurAll();
+            List<string> nomuser = new List<string>();
+            foreach ( UtilisateurModel um in user)
             {
-                if (ModelState.IsValid)
+                nomuser.Add(um.Nom_User);
+            }
+
+            if(nomuser.Contains(reservation.Nom_User))
+            {
+                if (utilisateur.Nom_User == reservation.Nom_User)
                 {
-                    BLresa.setCreateResa(reservation.Date_Debut_Resa, reservation.Date_Fin_Resa, reservation.Date_Resa, reservation.Nom_User, reservation.Purge);
+
+                    if (ModelState.IsValid)
+                    {
+
+                        BLresa.setCreateResa(reservation.Date_Debut_Resa, reservation.Date_Fin_Resa, reservation.Date_Resa, reservation.Nom_User, reservation.Purge);
+                    }
+                    return RedirectToAction("Index");
                 }
-                return RedirectToAction("Index");
+                else
+                {
+                    ViewBag.NomUser = false;
+                    ViewBag.Message = "Ceci n'est pas votre Nom d'utilisateur. Veuillez saisir votre Nom";
+                    return View();
+                }
             }
             else
             {
                 ViewBag.NomUser = false;
-                ViewBag.Message = "Ceci n'est pas votre Nom d'utilisateur. Veuillez saisir votre Nom";
+                ViewBag.Message = "L'utilisateur saisie n'existe pas. Veuillez recommencez";
                 return View();
             }
+
         }
     }
 }

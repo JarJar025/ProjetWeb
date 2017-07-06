@@ -52,9 +52,18 @@
                     @Html.DisplayFor(modelItem => item.Nom_User)
                 </td>
                 <td>
+                    @if (item.CheckEdit == true)
+                    {
                         <div type="button" class="btn btn-warning">
                             @Html.ActionLink("Edit", "Edit", new { id = item.id_Reservation })
                         </div>
+                    }
+                    @if (item.CheckEdit == false)
+                    {
+                        <div type="button" class="btn btn-warning">
+                            Edit
+                        </div>
+                    }
                     <div type="button" class="btn btn-success">
                         @Html.ActionLink("Details", "Details", new { id = item.id_Reservation }) 
                     </div>

@@ -45,7 +45,7 @@ namespace ProjetWeb.WEB.Controllers
                         }
                         else if (utilisateurverif.Nom_Profil == "Administrateur")
                         {
-                            return RedirectToAction("/../Home/Index");
+                            return RedirectToAction("/../HomeAdministrateur/Index");
                         }
                     }
                 }

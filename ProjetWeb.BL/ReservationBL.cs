@@ -51,6 +51,33 @@ namespace ProjetWeb.BL
             }).ToList();
             return ReservationNoPurge;
         }
+        public List<ReservationModel> getResaNoPurgeUtilisateur(int Id_User)
+        {
+            var ReservationNoPurge = db.Reservation.Where(p => p.Purge == false).Select(r => new ReservationModel()
+            {
+                id_Reservation = r.ID_Reservation,
+                Date_Debut_Resa = (DateTime)r.Date_Debut_Reservation,
+                Date_Fin_Resa = (DateTime)r.Date_Fin_Reservation,
+                Date_Resa = (DateTime)r.Date_Reservation,
+                id_User = r.ID_User,
+                Nom_User = db.Utilisateur.Where(v => v.ID_User == r.ID_User).FirstOrDefault().Nom_Utilisateur
+            }).ToList();
+            List<ReservationModel> ResaNoPurgeForUtilisateur = new List<ReservationModel>();
+            foreach (ReservationModel rm in ReservationNoPurge)
+            {
+                if(rm.id_User == Id_User)
+                {
+                    rm.CheckEdit = true;
+                    ResaNoPurgeForUtilisateur.Add(rm);
+                }
+                if (rm.id_User != Id_User)
+                {
+                    rm.CheckEdit = false;
+                    ResaNoPurgeForUtilisateur.Add(rm);
+                }
+            }
+                return ReservationNoPurge;
+        }
         public ReservationModel setEditResa(int id_Reservation, DateTime Date_Debut_Resa, DateTime Date_Fin_Resa, DateTime Date_Resa, string Nom_User, Boolean purge)
         {
             Reservation reservation = new Reservation();
